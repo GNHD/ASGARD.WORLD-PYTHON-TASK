@@ -3,34 +3,28 @@ Task 1: AWS EC2 Instance Management
 
 Objective: I will be evaluating my proficiency in managing AWS EC2 instances using Python.
 
-Description:
+1. Importing the Necessary Libraries:
+boto3: This library is used to interact with Amazon Web Services (AWS) resources, including EC2 instances.
+datetime: This module is used for working with dates and times.
+time: This module provides various time-related functions, including a function for introducing
+2. Initializing the EC2 Client:
+Here, we create an EC2 client object using Boto3. This client allows us to interact with EC2 instances and perform actions like starting and stopping them
+    
+    
+3. Defining Instance Parameters:
+In this section, you specify the parameters for launching an EC2 instance. These parameters include the Amazon Machine Image (AMI) ID, instance type, key pair name for SSH access, security group, subnet, and more. Make sure to replace the placeholders (e.g., 'your-ami-id') with your actual values.
 
-In this task, I will demonstrate my skills as a Python developer by performing the following tasks related to Amazon Web Services (AWS) Elastic Compute Cloud (EC2) instances.
+4. Launching the EC2 Instance:
+This code launches the EC2 instance using the parameters defined earlier. It then extracts the instance ID from the response and prints it to the console.
+5. Defining Functions to Start and Stop the Instance:
+These two functions, stop_instance and start_instance, use Boto3 to stop and start the EC2 instance, respectively. They take the instance_id as an argument and then call the appropriate EC2 API methods.
 
-Task Details:
+6. Configuring the Instance to Run on Specific Days and Times:
+his is the main loop of the script. It runs indefinitely (you may want to implement a better exit strategy in a production environment). Inside the loop, it does the following:
+Retrieves the current date and time using datetime.now().
+Determines the current day of the week using now.weekday(), where 0 represents Monday, 1 represents Tuesday, and so on.
+Checks if it's a Monday, Wednesday, Friday, or Sunday and if the current time is between 9:00 AM and 11:30 AM GMT.
+If the conditions are met, it starts the EC2 instance using start_instance(). Otherwise, it stops the instance using stop_instance().
+Sleeps for 60 seconds before checking again. This delay prevents the script from running too frequently and consuming unnecessary resources.
+In summary, this script automates the management of an EC2 instance by starting it during specific days and times and stopping it during the remaining time to save costs. It continuously checks the current day and time and takes appropriate actions accordingly.
 
-EC2 Instance Creation: I will write a Python script that utilizes the AWS SDK (Boto3) to create a new EC2 instance. My script will include the necessary parameters for specifying the instance type, security group, key pair, and any other relevant configurations.
-
-EC2 Instance Termination: I will develop a Python script that allows for the termination of an existing EC2 instance. I will ensure that I can specify the instance ID as an input to the script.
-
-EC2 Instance Information Retrieval: I will create a Python script that retrieves essential information about EC2 instances in my AWS account. This information will include details such as instance ID, instance type, launch time, and status.
-
-EC2 Instance Tagging: I will write a Python script that enables me to add, modify, or remove tags on EC2 instances. The script will allow me to specify the instance ID and the desired tags.
-
-Task 2: Web Scraping
-
-Objective: I will assess my web scraping skills using Python.
-
-Description:
-
-In this task, I will demonstrate my ability to extract information from websites using Python's web scraping libraries. I will ensure that I adhere to ethical scraping practices and respect the terms of service of the targeted websites.
-
-Task Details:
-
-Website Selection: I will choose a public website (e.g., a news site, e-commerce platform, or any other content-rich site) for web scraping. I will make sure that I have permission to scrape data from this website.
-
-Data Extraction: I will develop a Python script that uses libraries such as BeautifulSoup and requests to scrape specific data from the chosen website. I will aim to extract structured information, such as headlines, product details, or other relevant content.
-
-Data Storage: I will store the scraped data in a suitable format, such as CSV, JSON, or a database. I will ensure that the data is well-organized and easy to work with for further analysis.
-
-Error Handling: I will implement error handling in my scraping script to gracefully handle issues like connection errors or missing data on the website.
